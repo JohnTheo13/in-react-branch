@@ -1,0 +1,21 @@
+{
+  "editor.tabSize": 2,
+  "editor.detectIndentation": false,
+  "editor.insertSpaces": true,
+	"javascript.validate.enable": false,
+  "typescript.suggest.autoImports": false,
+  "workbench.editor.labelFormat": "short",
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    {
+      "language": "typescript",
+      "autoFix": true
+    },
+    {
+      "language": "typescriptreact",
+      "autoFix": true
+    }
+  ],
+  "java.configuration.updateBuildConfiguration": "interactive",
+}
