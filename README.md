@@ -1,44 +1,51 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+in-react-branch
+================
 
-## Available Scripts
 
-In the project directory, you can run:
+## Demo
+Check out the live [demo](http://my-coffee-beans.ksulourgeio.gr)
 
-### `yarn start`
+## Project setup
+1. Clone the project and checkout your specified branch
+1. In a terminal type ```yarn``` install dependencies
+1. In a terminal type ```yarn start``` to run the project
+1. A new browser window will be opene to the port specified in your .env
+1. In a terminal type ```yarn test``` to run your tests
+1. In a terminal type ```yarn lint``` to check for lint mistakes
+1. In a terminal type ```yarn build``` to make a production ready build
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Project's Stack
+This project was created with Create React apps with no build configuration
+Uses Redux for the project's state management, Styled-Components for the styling,
+Font Awesome for ui and Flow for Type checking:
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+- [Creating an App](https://github.com/facebook/create-react-app/) – How to create a new app.
+- [User Guide](https://facebook.github.io/create-react-app/) – How to develop apps bootstrapped with Create React App.
+- [Styled-Components](https://styled-components.com)
+- [Typescript](https://www.typescriptlang.org/)
 
-### `yarn test`
+## Project's Best Practices and Architect
+#### Motivations
+- Styled-Components, if it's planned smart the components exported to a package to used in different projects (reusability)
+- React's context API, to handle all the business logic (state), same logic with different components just by using the created reducer (reusability, refactoring, maintainace)
+- Create React App to have a PWA ready project
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Best Practices
+1. Single responsibility
+1. Small Stateless Components instead of big Classes
+1. Composable Components
+1. Reusable
+1. Meaningful
+1. Declarative FP with Pure or Almost-Pure functions
+1. Try to keep the Component's methods styles in the same folder
 
-### `yarn build`
+## ESLint
+Yes, we lint our files.   
+Lint will ensure that so best practices are followed. Search the error messages and learn with that.   
+Make sure that all your .js files are passing the lint check before open a PR.      
+There is pre-commit hook that won't allow you to commit without fixing the lint alerts.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Unit Test
+Following TDD you need first to write a small story, with an empty component and the unit tests and then we develop the component.   
+Test stack consist of [jest](https://jestjs.io) 
+The test are attached with an addon to the component story. You can follow the tests results directly through Storybook at the right panel under the specification tab.
