@@ -1,49 +1,27 @@
-// import { handleActions } from "redux-actions";
-// import { setToken, checkSupport, checkEnabled, setTagId } from "./actions";
+import { handleActions } from "redux-actions";
+import { changeHeader } from "./actions";
 
 // const { ...envVars } = process.env;
 
 export interface State {
-  supported: boolean;
-  enabled: boolean;
-  tagId: string;
-  accessToken: string | null;
-  accessTokenTimestamp: number | null;
+  header: string;
 }
 
 export interface Action {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   payload: any;
   type: string;
 }
 
 export const initialState: State = {
-  supported: false,
-  enabled: true, // PRODUCTION false
-  tagId: "",
-  accessToken: null,
-  accessTokenTimestamp: null
+  header: "APP"
 };
 
-// export const reducer = handleActions(
-//   {
-//     [checkSupport.toString()]: (state, { payload }: Action): State => ({
-//       ...state,
-//       supported: payload
-//     }),
-//     [checkEnabled.toString()]: (state, { payload }: Action): State => ({
-//       ...state,
-//       enabled: payload
-//     }),
-//     [setTagId.toString()]: (state, { payload }: Action): State => ({
-//       ...state,
-//       tagId: payload
-//     }),
-//     [setToken.toString()]: (state, { payload }: Action): State => ({
-//       ...state,
-//       accessToken: payload,
-//       accessTokenTimestamp: Date.now()
-//     })
-//   },
-//   initialState
-// );
+export const reducer = handleActions(
+  {
+    [changeHeader.toString()]: (state, { payload }: Action): State => ({
+      ...state,
+      header: payload
+    })
+  },
+  initialState
+);

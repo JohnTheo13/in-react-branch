@@ -1,14 +1,8 @@
-import React, {
-  ContextType,
-  createContext,
-  FunctionComponentElement,
-  ReactChild,
-  useReducer
-} from "react";
-import { initialState, State } from "./reducer";
+import React, { createContext, useReducer, ContextType, FunctionComponentElement } from "react";
+import { initialState, State, reducer } from "./reducer";
 
 interface Store {
-  children: ReactChild;
+  children: React.ReactChild;
 }
 
 export interface Context {
@@ -16,13 +10,14 @@ export interface Context {
   dispatch: void;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const StoreContext = createContext<ContextType<Context | any>>(initialState);
+const StoreContext = createContext<ContextType<Context | any>>(
+  initialState
+);
 
 const StoreProvider = ({
   children
 }: Store): FunctionComponentElement<Store> => {
-  const [state, dispatch] = useReducer(() => initialState, initialState);
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   return (
     <StoreContext.Provider value={{ state, dispatch }}>
